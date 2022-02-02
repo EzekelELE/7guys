@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="mycss.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="rootCounter">
+        <button id="dec">-</button>
+        <div id="counter">0</div>
+        <button id="inc">+</button>
+      </div>
+      <div class="rootCounter">
+        <label>celsius</label>
+        <input type="text" id="celsius" />
+        <label>fahrenheit</label>
+        <input type="text" id="fahrenheit" />
+      </div>
+      <div class="bookFlight">
+        <form id="bookFlightFrom">
+          <select name="" id="flightType">
+            <option value="chooseOption" disabled selected>choose</option>
+            <option value="oneway">ONE WAY</option>
+            <option value="returnFlight">TWO WAY</option>
+          </select>
+          <input type="date" id="T1" disabled value="" />
+          <input type="date" id="T2" disabled value="" />
+          <input type="submit" />
+        </form>
+      </div>
+      <div style="text-align: center; display: none" id="ticket">
+        You have booked a one-way flight on 04.04.2014
+      </div>
+      <div style="text-align: center; display: none" id="error">
+        Please complete the required information
+      </div>
+      <div class="crud">
+        <form action="" id="crud">
+          <input type="text" placeholder="firstname" id="firstname" />
+          <input type="text" placeholder="lastname" id="lastname" />
+          <input type="button" id="clear" value="clear all" />
+          <input type="submit" />
+          <div id="listOfNames"></div>
+        </form>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
