@@ -165,3 +165,64 @@ clear.addEventListener("click", () => {
   removeAlldivs();
   listOfNames = [];
 });
+
+/***********************************************************************/
+
+const circleDrawe = document.querySelector("#circleDrawe");
+
+circleDrawe.addEventListener("click", (e) => {
+  const x = e.pageX - $("#circleDrawe").offset().left;
+  const y = e.pageY - $("#circleDrawe").offset().top;
+  const newCircle = document.createElement("div");
+  newCircle.style.width = "20px";
+  newCircle.style.height = "20px";
+  newCircle.style.top = `${y - parseInt(newCircle.style.height) / 2}px`;
+  newCircle.style.left = `${x - parseInt(newCircle.style.width) / 2}px`;
+  circleDrawe.appendChild(newCircle);
+  ajustDiameter();
+});
+
+function ajustDiameter() {
+  const drawnCircles = document.querySelectorAll("#circleDrawe > *");
+  const diameter = document.querySelector("#diameter");
+  drawnCircles.forEach((ele) => {
+    ele.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+      diameter.addEventListener("mousemove", () => {
+        ele.style.transform = `scale(${diameter.value})`;
+        ele.style.transform = `scale(${diameter.value})`;
+      });
+    });
+  });
+}
+
+circleDrawe.addEventListener("mousemove", (e) => {
+  const drawnCircles = document.querySelectorAll("#circleDrawe > *");
+  var x = e.pageX;
+  var y = e.pageY;
+  drawnCircles.forEach((element) => {
+    console.log();
+    if (
+      element.getBoundingClientRect().y -
+        y +
+        element.getBoundingClientRect().height / 2 <=
+        element.getBoundingClientRect().width &&
+      element.getBoundingClientRect().y -
+        y +
+        element.getBoundingClientRect().height / 2 >=
+        -Math.abs(element.getBoundingClientRect().width) &&
+      element.getBoundingClientRect().x -
+        x +
+        element.getBoundingClientRect().width / 2 <=
+        element.getBoundingClientRect().width &&
+      element.getBoundingClientRect().x -
+        x +
+        element.getBoundingClientRect().width / 2 >=
+        -Math.abs(element.getBoundingClientRect().width)
+    ) {
+      element.style.backgroundColor = "grey";
+    } else {
+      element.style.backgroundColor = "white";
+    }
+  });
+});
